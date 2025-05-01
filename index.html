@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dolphin Spa Services</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ADD: Responsive styles */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        padding: 10px;
+      }
+
+      .tabs {
+        display: none;
+        flex-direction: column;
+        background: #f0f0f0;
+        width: 100%;
+      }
+
+      .tabs.show {
+        display: flex;
+      }
+
+      .tab {
+        padding: 12px;
+        border-bottom: 1px solid #ccc;
+        background: #fff;
+        color: #2e7d32;
+        text-align: center;
+      }
+
+      .tab.active {
+        background-color: #388e3c;
+        color: white;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <h1>Dolphin Spa</h1>
+    <!-- ADD: Menu toggle button -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" id="homeTab">Home</div>
+    <div class="tab" id="servicesTab">Services</div>
+    <div class="tab" id="contactTab">Contact</div>
+    <div class="tab" id="viewBookingTab">View Booking</div>
+  </div>
+
+  <!-- Sections -->
+  <section id="homeSection" class="section">
+    <h2>Welcome to Dolphin Spa</h2>
+    <p>Your ultimate relaxation destination.</p>
+  </section>
+
+  <section id="servicesSection" class="section" style="display: none;">
+    <h2>Our Services</h2>
+    <div id="servicesContainer" class="cards"></div>
+  </section>
+
+  <section id="detailSection" class="section" style="display: none;">
+    <div id="serviceDetail"></div>
+    <div class="detail-buttons">
+      <button id="backBtn" class="btn">Back</button>
+      <button id="bookNowBtn" class="btn">Book Now</button>
+    </div>
+  </section>
+
+  <section id="bookingSection" class="section" style="display: none;">
+    <h2>Booking Form</h2>
+    <form id="bookingForm">
+      <input type="text" id="customerName" placeholder="Your Name" required>
+      <input type="tel" id="customerPhone" placeholder="Your Phone" required>
+      <input type="datetime-local" id="bookingDateTime" required>
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+  </section>
+
+  <!-- QR Code Section -->
+  <section id="qrCodeSection" class="section" style="display: none;">
+    <h2>Scan to Pay</h2>
+    <img src="images/QR.png" alt="QR Code" style="width: 300px; max-width: 100%;">
+    <p>Thank you for booking with Dolphin Spa!</p>
+    <p id="paymentStatus">Payment Status: <span id="status">Pending</span></p>
+    <button id="confirmPaymentBtn" class="btn">Confirm Payment</button>
+  </section>
+
+  <section id="contactSection" class="section" style="display: none;">
+    <h2>Contact Us</h2>
+    <p>Phone: +123456789 | Email: info@dolphinspa.com</p>
+  </section>
+
+  <section id="viewBookingSection" class="section" style="display: none;">
+    <h2>View Booking</h2>
+    <div id="viewBookingList"></div>
+  </section>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    // Toggle the mobile menu visibility
+    function toggleMenu() {
+      const tabs = document.querySelector('.tabs');
+      tabs.classList.toggle('show');
+    }
+  </script>
+
+  <!-- Your existing JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
